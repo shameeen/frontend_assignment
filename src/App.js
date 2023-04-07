@@ -58,72 +58,49 @@ function App() {
 
 
 
-  // function validateInput(type, value) {
+  function validateInput(type, value) {
    
 
-  //   if (type === "textarea") {
-  //     return /^[A-Za-z\d ]{0,250}$/.test(value);
-  //   }
+    if (type === "textarea") {
+      return /^[A-Za-z\d ]{0,250}$/.test(value);
+    }
 
-  //   console.log("length", value.length);
-  //   if(value.lengh <= 1) { return true };
+    console.log("length", value.length);
+    if(value.lengh <= 1) { return true };
 
-  //   if (!value.trim()) {
-  //     console.log("trim");
-  //     return false;
+    if (!value.trim()) {
+      console.log("trim");
+      return false;
     
-  //   }
+    }
 
-  //   const numericValue = parseInt(value);
-  //   if (isNaN(numericValue)) {
-  //     console.log("abc");
-  //     setIsValid(false);
-  //     return false;
+    const numericValue = parseInt(value);
+    if (isNaN(numericValue)) {
+      console.log("abc");
+      setIsValid(false);
+      return false;
    
-  //   }
+    }
 
-  //   switch (type) {
-  //     case "days":
+    switch (type) {
+      case "days":
 
-  //       return numericValue >= 1 && numericValue <= 31;
+        return numericValue >= 1 && numericValue <= 31;
            
     
        
-  //     case "months":
-  //       return numericValue >= 1 && numericValue <= 12 && value.length <= 2;
-  //     case "years":
-  //       console.log("console", numericValue, type, numericValue.toString().length);
-  //       if (numericValue.toString().length < 4) return true;
-  //       return numericValue >= 1920 && numericValue <= 2006;
-  //     default:
-  //       return false;
-  //   }
-  // }
-
-  function validateInput(type, value) {
-    const numericRegex = /^[0-9]*$/;
-  
-    switch (type) {
-      case "days":
-        if (numericRegex.test(value) && parseInt(value) >= 1 && parseInt(value) <= 31) {
-          return true;
-        }
-        break;
       case "months":
-        if (numericRegex.test(value) && parseInt(value) >= 1 && parseInt(value) <= 12) {
-          return true;
-        }
-        break;
+        return numericValue >= 1 && numericValue <= 12 && value.length <= 2;
       case "years":
-        if (numericRegex.test(value) && parseInt(value) >= 1900 && parseInt(value) <= new Date().getFullYear()) {
-          return true;
-        }
-        break;
+        console.log("console", numericValue, type, numericValue.toString().length);
+        if (numericValue.toString().length < 4) return true;
+        return numericValue >= 1920 && numericValue <= 2006;
       default:
-        break;
+        return false;
     }
-    return false;
   }
+
+  
   
 
   function handleDayChange(e) {
