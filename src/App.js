@@ -59,49 +59,31 @@ function App() {
 
 
   function validateInput(type, value) {
-   
-
     if (type === "textarea") {
       return /^[A-Za-z\d ]{0,250}$/.test(value);
     }
 
-    console.log("length", value.length);
-    if(value.lengh <= 1) { return true };
-
     if (!value.trim()) {
-      console.log("trim");
-      return false;
-    
+      return true;
     }
 
     const numericValue = parseInt(value);
     if (isNaN(numericValue)) {
-      console.log("abc");
-      setIsValid(false);
       return false;
-   
     }
 
     switch (type) {
       case "days":
-
         return numericValue >= 1 && numericValue <= 31;
-           
-    
-       
       case "months":
         return numericValue >= 1 && numericValue <= 12 && value.length <= 2;
       case "years":
-        console.log("console", numericValue, type, numericValue.toString().length);
         if (numericValue.toString().length < 4) return true;
         return numericValue >= 1920 && numericValue <= 2006;
       default:
         return false;
     }
   }
-
-  
-  
 
   function handleDayChange(e) {
     e.preventDefault();
@@ -110,10 +92,10 @@ function App() {
       setValidationErrorDay({});
     } else {
       setValidationErrorDay({ day: DAY_VALIDATION_ERROR });
-      
+
     }
-    // setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
-    console.log(validateInput("days", selectedDay), validateInput("months", selectedMonthYear), validateInput("years", selectedYear), validateInput("textarea", textAreaContent));
+    setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
+
   }
 
   function handleMonthYearChange(e) {
@@ -125,7 +107,6 @@ function App() {
       setValidationErrorMonth({ month: MONTH_VALIDATION_ERROR });
     }
     setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
-    console.log(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
   }
 
   function handleYearChange(e) {
@@ -161,7 +142,7 @@ function App() {
       rates: rate,
       workLifeBalances: workLifeBalance,
     }
-    
+
 
 
     try {
@@ -172,7 +153,7 @@ function App() {
       console.error('Error writing file:', error);
     }
 
-    
+
 
     setTitle("");
     setRate("");
@@ -187,7 +168,7 @@ function App() {
   return (
 
     <div className="main-container container">
-      <SelectInput formData={formData} handleTitleChange={handleTitleChange} title={title} Heading="Title"/>
+      <SelectInput formData={formData} handleTitleChange={handleTitleChange} title={title} Heading="Title" />
 
       <DateOfBirth
         validationErrorDay={validationErrorDay}
@@ -216,10 +197,10 @@ function App() {
         question={formData?.questions?.[4]?.question}
         handleWorkLifeBalance={handleWorkLifeBalance} workLifeBalance={workLifeBalance} formData={formData} />
 
-{/* {isValid && ( */}
+   
       <Buttonn variant="primary" onClick={handleSubmitButtonClick} disabled={!isValid} className="submit">Submit</Buttonn>
-      {/* )} */}
-      
+  
+
     </div>
   );
 }

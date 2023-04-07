@@ -32,39 +32,39 @@ export default function DateOfBirth({ validationErrorDay, handleDayChange, handl
 
       <div className="date">
         <div>
-        <InputField
-          label="Day"
-          placeholder="Day"
-          ariaLabel="Day"
-          ariaDescribedBy="basic-addon1"
-          onChange={handleDayChange}
-          value={selectedDay}
-          feedbackType={validationErrorDay.day ? "invalid" : ""}
-          feedbackText={validationErrorDay.day}
-        />
-    </div>
-    <div>
-        <InputField
-          label="Month"
-          placeholder="Month"
-          onChange={handleMonthYearChange}
-          value={selectedMonthYear}
-          feedbackType={validationErrorMonth.month ? 'invalid' : ''}
-          feedbackText={validationErrorMonth.month}
-        />
+          <InputField
+            label="Day"
+            placeholder="Day"
+            ariaLabel="Day"
+            ariaDescribedBy="basic-addon1"
+            onChange={handleDayChange}
+            value={selectedDay}
+            feedbackType={validationErrorDay.day ? "invalid" : ""}
+            feedbackText={validationErrorDay.day}
+          />
+        </div>
+        <div>
+          <InputField
+            label="Month"
+            placeholder="Month"
+            onChange={handleMonthYearChange}
+            value={selectedMonthYear}
+            feedbackType={validationErrorMonth.month ? 'invalid' : ''}
+            feedbackText={validationErrorMonth.month}
+          />
 
-</div>
-<div>
-        <InputField
-          label="Year"
-          placeholder="Year"
-          onChange={handleYearChange}
-          value={selectedYear}
-          feedbackType={validationErrorYear.year ? 'invalid' : ''}
-          feedbackText={validationErrorYear.year}
-        />
+        </div>
+        <div>
+          <InputField
+            label="Year"
+            placeholder="Year"
+            onChange={handleYearChange}
+            value={selectedYear}
+            feedbackType={validationErrorYear.year ? 'invalid' : ''}
+            feedbackText={validationErrorYear.year}
+          />
 
-</div>
+        </div>
       </div>
     </div>
 
