@@ -9,11 +9,6 @@ import Rating from "./components/Rating";
 import StressSources from "./components/StressSources";
 import { SOURCES_VALIDATION_ERROR, YEAR_VALIDATION_ERROR, MONTH_VALIDATION_ERROR, DAY_VALIDATION_ERROR, GET_QUESTION_JSON } from './constant';
 
-
-
-
-
-
 function App() {
   const [formData, setFormData] = useState([]);
   const [title, setTitle] = useState("");
@@ -29,8 +24,6 @@ function App() {
   const [ValidationErrorSources, setValidationErrorSources] = useState({});
   const [isValid, setIsValid] = useState(false);
 
-
-
   useEffect(() => {
     const getQuestions = async () => {
       const questions = await axios.get(GET_QUESTION_JSON);
@@ -41,8 +34,9 @@ function App() {
     };
   }, []);
 
-
-
+  useEffect(() => {
+    setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
+  }, [selectedDay, selectedMonthYear, selectedYear, textAreaContent])
 
   const handleRateClick = (e) => {
     setRate(e.target.value);
@@ -52,17 +46,15 @@ function App() {
     setworkLifeBalance(e.target.value);
   }
 
-
-
-
   function validateInput(type, value) {
-    if (type === "textarea") {
+    if (type == "textarea") {
       return /^[A-Za-z\d ]{0,250}$/.test(value);
     }
 
     if (!value.trim()) {
-      return true;
+      return false;
     }
+  
 
     const numericValue = parseInt(value);
     if (isNaN(numericValue)) {
@@ -84,35 +76,54 @@ function App() {
 
   function handleDayChange(e) {
     e.preventDefault();
+    let value = e.target.value;
+
     if (validateInput("days", e.target.value)) {
       setSelectedDay(e.target.value);
       setValidationErrorDay({});
     } else {
       setValidationErrorDay({ day: DAY_VALIDATION_ERROR });
-
+    }
+    if (e.keyCode === 8) { 
+      setSelectedDay(value.slice(0, -1)); 
+    } else {
+      setSelectedDay(value);
     }
     setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
-
   }
 
   function handleMonthYearChange(e) {
     e.preventDefault();
+    let value = e.target.value;
+
     if (validateInput("months", e.target.value)) {
       setSelectedMonthYear(e.target.value);
       setValidationErrorMonth({});
     } else {
       setValidationErrorMonth({ month: MONTH_VALIDATION_ERROR });
     }
+    if (e.keyCode === 8) { // Backspace key
+      setSelectedMonthYear(value.slice(0, -1)); // Remove last character
+    } else {
+      setSelectedMonthYear(value);
+    }
     setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
   }
 
   function handleYearChange(e) {
     e.preventDefault();
+    let value = e.target.value;
+
     if (validateInput("years", e.target.value)) {
       setSelectedYear(e.target.value);
       setValidationErrorYear({});
     } else {
       setValidationErrorYear({ year: YEAR_VALIDATION_ERROR });
+    }
+    if (e.keyCode === 8) {
+      setSelectedYear(value.slice(0, -1));
+    } else {
+      setSelectedYear(value);
     }
     setIsValid(validateInput("days", selectedDay) && validateInput("months", selectedMonthYear) && validateInput("years", selectedYear) && validateInput("textarea", textAreaContent));
   }
@@ -140,8 +151,6 @@ function App() {
       workLifeBalances: workLifeBalance,
     }
 
-
-
     try {
       axios.post('http://localhost:3001/write-file', { fileContent: updatedData }).then(response => console.log(response.data)).catch(error => console.error(error));
       console.log("successful");
@@ -149,8 +158,6 @@ function App() {
     catch (error) {
       console.error('Error writing file:', error);
     }
-
-
 
     setTitle("");
     setRate("");
@@ -187,21 +194,17 @@ function App() {
         textAreaContent={textAreaContent}
         handleTextareaChange={handleTextareaChange}
         ValidationErrorSources={ValidationErrorSources.textarea}
+        feedbackType={ValidationErrorSources.textarea ? "invalid" : ""}
+        feedbackText={ValidationErrorSources.textarea}
       />
-
-
       <Performance
         question={formData?.questions?.[4]?.question}
         handleWorkLifeBalance={handleWorkLifeBalance} workLifeBalance={workLifeBalance} formData={formData} />
-
-   
       <Buttonn variant="primary" onClick={handleSubmitButtonClick} disabled={!isValid} className="submit">Submit</Buttonn>
-  
+
 
     </div>
   );
 }
 
 export default App;
-
-

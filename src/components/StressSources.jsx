@@ -3,13 +3,13 @@ import { Form, OverlayTrigger } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-const StressSources = ({ question, textAreaContent, handleTextareaChange, ValidationErrorSources }) => {
-    const renderTextAreaTooltipp = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-          Knowing other work or nonwork drivers of stress may help your organization implementmpractices to counter these factors.
-        </Tooltip>
-      );
-    
+const StressSources = ({ question, textAreaContent, handleTextareaChange, feedbackType, feedbackText }) => {
+  const renderTextAreaTooltipp = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Knowing other work or nonwork drivers of stress may help your organization implementmpractices to counter these factors.
+    </Tooltip>
+  );
+
 
   return (
     <div className="sources-container">
@@ -25,10 +25,16 @@ const StressSources = ({ question, textAreaContent, handleTextareaChange, Valida
       </div>
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1"  >
         <Form.Label>Enter up to 250 characters here</Form.Label>
-        <Form.Control as="textarea" rows={3} value={textAreaContent}
-          onChange={handleTextareaChange} />
-        <Form.Control.Feedback type="invalid">
-          {ValidationErrorSources}
+        <Form.Control
+          as="textarea"
+          rows={3}
+          value={textAreaContent}
+          onChange={handleTextareaChange}
+          isInvalid={feedbackType === 'invalid'}
+          isValid={feedbackType === 'valid'}
+        />
+        <Form.Control.Feedback type={feedbackType}>
+          {feedbackText}
         </Form.Control.Feedback>
       </Form.Group>
     </div>
