@@ -1,0 +1,30 @@
+{"questions": [
+    {
+      "question": "Title Dropdown",
+      "options": [
+        "Mr",
+        "Ms",
+        "Mrs",
+        "Miss",
+        "Dr"
+        
+      ]
+    },
+    {
+      "question": "Date of birth",
+      "options": []
+    },
+    {
+      "question": "On a scale of 1-10, with 10 being the highest, would you rate the following?",
+      "options": ["1","2","3","4","5","6","7","8","9","10"]
+    },
+    {
+      "question": "Are there any other sources of stress not mentioned here that affect you?",
+      "options": []
+    },
+    {
+      "question": "How would you describe the balance between your work and non-work activities?",
+      "options": ["Ideal","Satisfactory","Challenging","Extremely Challenging","Unmanageable"]
+    }
+  ]
+}

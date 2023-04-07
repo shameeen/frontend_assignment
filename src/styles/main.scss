@@ -1,0 +1,140 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+
+.main-container {
+    background-color: $bg-color;
+    color: $text-color;
+    margin-top: 50px;
+    padding: 50px !important;
+    .title {
+        margin-bottom: 30px;
+        .form-select {
+            background: $form-color;
+            color: $text-color;
+            border: 1px solid $form-color;
+            @include input-focus();
+        }
+    }
+    .dob {
+        margin-bottom: 30px;
+        .info-button {
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid $text-color;
+            padding: 0 12px;
+            margin-left: 10px;
+        }
+
+        .date {
+            display: flex;
+            justify-content: space-between;
+            .form-control {
+                border-radius: 30px 30px !important;
+                background-color: $form-color;
+                border-color: $form-color;
+                padding: 15px 80px 10px 15px;
+                color:  $text-color;
+                @include input-focus();
+            }
+            ::placeholder {
+                color: $text-color;
+            }
+        }
+    }
+
+    .sources-container {
+        .info-button {
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid $text-color;
+            padding: 0 18px;
+            margin-left: 10px;
+        }
+    }
+
+    .rating {
+        margin-bottom: 50px;
+        p {
+            font-size: 20px;
+        }
+        .button-row {
+            display: flex;
+            justify-content: space-evenly;
+            button {
+                background: $form-color;
+                border: 1px solid $form-color;
+                border-radius: 50%;
+                padding: 12px 25px;
+                font-size: 25px;
+
+                &:focus {
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    background: #d8bdd2;
+                }
+            }
+
+            & > * {
+                margin-right: 10px;
+                margin-top: 30px;
+            }
+
+            & > :last-child {
+                margin-right: 0;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .sources-container {
+        margin-bottom: 50px;
+        p {
+            font-size: 20px;
+        }
+        .form-control {
+            background-color: $form-color;
+            color: $text-color;
+            border: 1px solid $form-color;
+            @include input-focus();
+        }
+    }
+
+    .performance {
+        p {
+            font-size: 20px;
+        }
+        button {
+            background: #dacfd5;
+            width: 50%;
+            border: 1px solid $form-color;
+            text-align: left;
+            padding: 15px;
+            margin-bottom: 5px;
+            color: $form-color;
+            &:focus {
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                background: #fefefe;
+            }
+            .optionsLabel {
+                background-color: $bg-color;
+                padding: 2px 7px;
+                color: $text-color;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .submit {
+        background: #4e3c4c;
+        border: 1px solid #4e3c4c;
+        border-radius: 30px 30px;
+        padding: 15px 35px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .btn:disabled{
+        background-color: lightgrey;
+        border: 1px solid lightgrey;
+        color:  $text-color;
+    }
+}

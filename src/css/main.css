@@ -1,0 +1,191 @@
+.main-container {
+  background-color: #70546A;
+  color: white;
+  margin-top: 50px;
+  padding: 50px !important;
+}
+
+.main-container .title {
+  margin-bottom: 30px;
+}
+
+.main-container .title .form-select {
+  background: #927D8E;
+  color: white;
+  border: 1px solid #927D8E;
+}
+
+.main-container .title .form-select:focus {
+  outline: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-color: #927D8E;
+  color: white;
+}
+
+.main-container .dob {
+  margin-bottom: 30px;
+}
+
+.main-container .dob .info-button {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 0 12px;
+  margin-left: 10px;
+}
+
+.main-container .dob .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-container .dob .date .form-control {
+  border-radius: 30px 30px !important;
+  background-color: #927D8E;
+  border-color: #927D8E;
+  padding: 15px 80px 10px 15px;
+  color: white;
+}
+
+.main-container .dob .date .form-control:focus {
+  outline: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-color: #927D8E;
+  color: white;
+}
+
+.main-container .dob .date ::-webkit-input-placeholder {
+  color: white;
+}
+
+.main-container .dob .date :-ms-input-placeholder {
+  color: white;
+}
+
+.main-container .dob .date ::-ms-input-placeholder {
+  color: white;
+}
+
+.main-container .dob .date ::placeholder {
+  color: white;
+}
+
+.main-container .sources-container .info-button {
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 0 18px;
+  margin-left: 10px;
+}
+
+.main-container .rating {
+  margin-bottom: 50px;
+}
+
+.main-container .rating p {
+  font-size: 20px;
+}
+
+.main-container .rating .button-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.main-container .rating .button-row button {
+  background: #927D8E;
+  border: 1px solid #927D8E;
+  border-radius: 50%;
+  padding: 12px 25px;
+  font-size: 25px;
+}
+
+.main-container .rating .button-row button:focus {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: #d8bdd2;
+}
+
+.main-container .rating .button-row > * {
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+.main-container .rating .button-row > :last-child {
+  margin-right: 0;
+  font-size: 18px;
+}
+
+.main-container .sources-container {
+  margin-bottom: 50px;
+}
+
+.main-container .sources-container p {
+  font-size: 20px;
+}
+
+.main-container .sources-container .form-control {
+  background-color: #927D8E;
+  color: white;
+  border: 1px solid #927D8E;
+}
+
+.main-container .sources-container .form-control:focus {
+  outline: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-color: #927D8E;
+  color: white;
+}
+
+.main-container .performance p {
+  font-size: 20px;
+}
+
+.main-container .performance button {
+  background: #dacfd5;
+  width: 50%;
+  border: 1px solid #927D8E;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 5px;
+  color: #927D8E;
+}
+
+.main-container .performance button:focus {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background: #fefefe;
+}
+
+.main-container .performance button .optionsLabel {
+  background-color: #70546A;
+  padding: 2px 7px;
+  color: white;
+  margin-right: 5px;
+}
+
+.main-container .submit {
+  background: #4e3c4c;
+  border: 1px solid #4e3c4c;
+  border-radius: 30px 30px;
+  padding: 15px 35px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.main-container .btn:disabled {
+  background-color: lightgrey;
+  border: 1px solid lightgrey;
+  color: white;
+}
+/*# sourceMappingURL=main.css.map */
