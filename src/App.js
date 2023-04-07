@@ -35,10 +35,7 @@ function App() {
     const getQuestions = async () => {
       const questions = await axios.get(GET_QUESTION_JSON);
       setFormData(questions.data);
-      console.log(questions);
     };
-
-
     getQuestions();
     return () => {
     };
