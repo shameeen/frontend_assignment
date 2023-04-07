@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/write-file', (req, res) => { 
-  const fileContent = req.body.fileContent; 
+const fileContent = req.body.fileContent; 
 // Read the contents of the JSON file and parse it into a JavaScript object
-const jsonData = fs.readFileSync('input1.json', 'utf-8');
+const jsonData = fs.readFileSync('responses.json', 'utf-8');
 const data = JSON.parse(jsonData);
 // Check if the "responses" array exists, and create it if it doesn't
 if (!data.responses) {

@@ -47,7 +47,7 @@ function App() {
   }
 
   function validateInput(type, value) {
-    if (type == "textarea") {
+    if (type === "textarea") {
       return /^[A-Za-z\d ]{0,250}$/.test(value);
     }
 
